@@ -17,8 +17,16 @@ function Home({ usersList }: any) {
   // chat modal visibility states
   const [chatActive, setChatActive] = useState("hidden");
 
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
-    <div className="flex flex-col lg:fixed">
+    <div
+      onClick={open ? handleClose : () => {}}
+      className="flex flex-col lg:fixed"
+    >
       <div className="p-10 flex lg:flex-row flex-col justify-center items-center gap-[44px]">
         {/* Side Navbar */}
         <Nav tab={tab} setTab={setTab} />
@@ -29,7 +37,14 @@ function Home({ usersList }: any) {
             <>
               {tab === item && (
                 <>
-                  <Header title={item} user={user} usersList={usersList} />
+                  <Header
+                    open={open}
+                    handleClose={handleClose}
+                    handleOpen={handleOpen}
+                    title={item}
+                    user={user}
+                    usersList={usersList}
+                  />
                   {item === "Profile" ? <></> : <Banner />}
                 </>
               )}

@@ -1,18 +1,17 @@
 import { Box, Modal } from "@mui/material";
-import { useState } from "react";
 import map from "../assets/images/map.png";
 import { Link } from "react-router-dom";
 import Info from "./Info";
 
-function Header({ title, user, usersList }: any) {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+function Header({ title, user, usersList,open,handleOpen,handleClose }: any) {
+  
 
   return (
     <>
-      <div className="lg:h-[627px] lg:w-[70vw]">
+      <div
+        onClick={open ? handleClose : () => {}}
+        className="lg:h-[627px] lg:w-[70vw]"
+      >
         <div className="flex flex-row justify-between items-center py-[20px] border-b border-[#d8d8d8]">
           <p className="text-lg font-avenir text-[#545454]">{title}</p>
 
@@ -53,7 +52,9 @@ function Header({ title, user, usersList }: any) {
               {/* Company Details */}
 
               <div className="flex flex-col gap-1 mt-[10px]">
-                <p className=" text-[#9a9a9a] font-avenirRoman text-center">Company</p>
+                <p className=" text-[#9a9a9a] font-avenirRoman text-center">
+                  Company
+                </p>
 
                 <div className="px-5">
                   {[
@@ -108,7 +109,6 @@ function Header({ title, user, usersList }: any) {
                     </p>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ function Header({ title, user, usersList }: any) {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
-        // hideBackdrop
+        hideBackdrop
       >
         <Box
           style={{
@@ -134,7 +134,7 @@ function Header({ title, user, usersList }: any) {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <div className="flex flex-col justify-center items-center p-10 w-[270px] rounded-2xl shadow-md bg-white">
+          <div className="flex flex-col justify-center items-center p-10 w-[270px] rounded-2xl shadow-lg border border-[#f1f1f1] bg-white">
             <img
               className="w-[90px] h-[90px] rounded-full mb-[10px]"
               src={user.profilepicture}
@@ -150,7 +150,7 @@ function Header({ title, user, usersList }: any) {
             {/* <div className="border-t w-[160px] my-[5px]" /> */}
 
             <div className="grid grid-flow-row justify-center gap-2">
-              {usersList.slice(0,2).map((item: any) => (
+              {usersList.slice(0, 2).map((item: any) => (
                 <Link to="/home" state={{ user: item } as any}>
                   <div
                     onClick={handleClose}
