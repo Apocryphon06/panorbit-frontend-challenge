@@ -5,7 +5,7 @@ function Login({usersList}:any) {
   return (
     <div className="lg:w-[570px] w-[325px] m-auto pt-[140px]">
       <div className="bg-lightGray rounded-tl-3xl rounded-tr-3xl p-10 shadow-md ">
-        <p className="text-center font-avenir font-semibold opacity-80 lg:text-xl text-lg">
+        <p className="text-center font-avenirRoman opacity-80 lg:text-xl text-lg">
           Select an account
         </p>
       </div>
@@ -21,7 +21,7 @@ function Login({usersList}:any) {
                   src={user.profilepicture}
                   alt="profile_pic"
                 />
-                <p className="lg:text-lg text-base font-avenir opacity-70">{user.name}</p>
+                <p className="lg:text-lg text-base font-avenirBook  opacity-70">{user.name}</p>
               </div>
             </Link>
           </>

@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        interRegular: ['Inter Regular'],
-        interBold: ['Inter Bold'],
-        avenir:['Avenir']
+        // interRegular: ['Inter Regular'],
+        // interBold: ['Inter Bold'],
+        avenir:['Avenir'],
+        avenirBook:['Avenir Book'],
+        avenirRoman:['Avenir Roman']
+
       },
       colors: {
         purple: '#5e3bc8',

@@ -39,7 +39,8 @@ function ChatModal({usersList,setChatActive,chatActive}:any) {
                       src={user.profilepicture}
                       alt="profile_pic"
                     />
-                    <p className="text-xs font-avenir opacity-70">
+
+                    <p className="text-xs font-avenirBook opacity-70">
                       {user.name}
                     </p>
                   </div>
@@ -49,7 +50,7 @@ function ChatModal({usersList,setChatActive,chatActive}:any) {
                       Math.floor(Math.random() * 2) === 0
                         ? "text-[#1CAD62]"
                         : "text-[#dfdfdf]"
-                    } scale-[2.5]`}
+                    } scale-[2.5] relative bottom-[5px]`}
                   >
                     &#x2022;
                   </p>

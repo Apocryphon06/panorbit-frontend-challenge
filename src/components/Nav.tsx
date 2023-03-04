@@ -4,7 +4,7 @@ import ActiveIcon from './ActiveIcon'
 function Nav({tab, setTab}:any) {
   return (
     <div className="lg:w-[240px] bg-gradient-to-b from-inkBlue to-purple text-white flex flex-col justify-center items-start px-10 rounded-3xl lg:h-[90vh]">
-          <div className="text-start flex lg:flex-col flex-row lg:gap-0 gap-5 lg:p-0 p-5 font-avenir text-base text-[#A5A5E5]">
+          <div className="text-start flex lg:flex-col flex-row lg:gap-0 gap-5 lg:p-0 p-5 font-avenirRoman text-base text-[#A5A5E5]">
             {/* setting active highlight for text on active tab */}
             <div className="flex">
               <p

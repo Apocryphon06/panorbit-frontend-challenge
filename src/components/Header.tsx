@@ -14,7 +14,7 @@ function Header({ title, user, usersList }: any) {
     <>
       <div className="lg:h-[627px] lg:w-[70vw]">
         <div className="flex flex-row justify-between items-center py-[20px] border-b border-[#d8d8d8]">
-          <p className="text-lg font-avenir  text-[#545454]">{title}</p>
+          <p className="text-lg font-avenirBook  text-[#545454]">{title}</p>
 
           <div onClick={handleOpen} className="flex gap-2 items-center">
             <img
@@ -22,7 +22,7 @@ function Header({ title, user, usersList }: any) {
               src={user.profilepicture}
               alt="avatar"
             />
-            <p className="cursor-pointer font-avenir">{user.name}</p>
+            <p className="cursor-pointer font-avenirBook">{user.name}</p>
           </div>
         </div>
 
@@ -53,9 +53,9 @@ function Header({ title, user, usersList }: any) {
               {/* Company Details */}
 
               <div className="flex flex-col gap-1 mt-[10px]">
-                <p className=" text-[#9a9a9a] font-avenir">Company</p>
+                <p className=" text-[#9a9a9a] font-avenirRoman text-center">Company</p>
 
-                <div className="px-5 py-2">
+                <div className="px-5">
                   {[
                     { label: "Name", value: user.company.name },
                     { label: "catchphrase", value: user.company.catchPhrase },
@@ -68,11 +68,11 @@ function Header({ title, user, usersList }: any) {
             </div>
 
             {/* Address details */}
-            <div className="p-5">
-              <div className="border-t border-[#d8d8d8] lg:hidden block" />
+            <div className="p-5 ">
+              <div className="border-t border-[#d8d8d8] lg:hidden block mb-2" />
 
-              <p className="text-[#9a9a9a] font-avenir">Address:</p>
-              <div className="px-5 py-2">
+              <p className="text-[#9a9a9a] font-avenirRoman">Address:</p>
+              <div className="px-5 ">
                 <div className="flex flex-col gap-1 px-2">
                   {[
                     { label: "Street", value: user.address.street },
@@ -92,15 +92,15 @@ function Header({ title, user, usersList }: any) {
                     alt={map}
                   />
                   <div className="flex flex-row gap-5 justify-end px-2">
-                    <p className="text-[#545454] font-avenir text-xs">
-                      <span className="text-[#9a9a9a] font-avenir">
+                    <p className="text-[#545454] font-avenirBook text-xs">
+                      <span className="text-[#9a9a9a] font-avenirBook">
                         Lat&nbsp;:
                       </span>
                       &nbsp;
                       {user.address.geo.lat ?? ""}
                     </p>
-                    <p className="text-[#545454] font-avenir text-xs">
-                      <span className="text-[#9a9a9a] font-avenir">
+                    <p className="text-[#545454] font-avenirBook text-xs">
+                      <span className="text-[#9a9a9a] font-avenirBook">
                         Long&nbsp;:
                       </span>
                       &nbsp;
@@ -142,15 +142,15 @@ function Header({ title, user, usersList }: any) {
             />
 
             <div className="flex flex-col">
-              <p className="text-[18px] font-avenir ">{user.name}</p>
-              <p className="text-base text-[#9a9a9a] font-avenir">
+              <p className="text-[18px] font-avenirBook ">{user.name}</p>
+              <p className="text-base text-[#9a9a9a] font-avenirBook">
                 {user.email}
               </p>
             </div>
             <div className="border-t w-[160px] my-[5px]" />
 
             <div className="grid grid-flow-row justify-center gap-2">
-              {usersList.slice(4, 6).map((item: any) => (
+              {usersList.slice(0,2).map((item: any) => (
                 <Link to="/home" state={{ user: item } as any}>
                   <div
                     onClick={handleClose}
@@ -164,7 +164,7 @@ function Header({ title, user, usersList }: any) {
                         alt="person1"
                       />
                     </span>{" "}
-                    <p className="text-sm font-avenir text-[#545454] ">
+                    <p className="text-sm font-avenirBook text-[#545454] ">
                       {" "}
                       {item.name}
                     </p>
