@@ -4,7 +4,7 @@
 
 
 ::-webkit-scrollbar {
-    width: 5px;
+    width: 6px;
 }
   
   /* Track */
@@ -22,3 +22,21 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #d9d9d9; 
   }
+
+
+  @font-face {
+    font-family: 'PTSans Regular';
+    src: url('./assets/fonts/PTSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: 'PTSans Bold';
+    src: url('./assets/fonts/PTSans-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  
