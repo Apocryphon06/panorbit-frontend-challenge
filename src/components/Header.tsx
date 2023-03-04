@@ -14,7 +14,7 @@ function Header({ title, user, usersList }: any) {
     <>
       <div className="lg:h-[627px] lg:w-[70vw]">
         <div className="flex flex-row justify-between items-center py-[20px] border-b border-[#d8d8d8]">
-          <p className="text-lg font-avenirBook  text-[#545454]">{title}</p>
+          <p className="text-lg font-avenir text-[#545454]">{title}</p>
 
           <div onClick={handleOpen} className="flex gap-2 items-center">
             <img
@@ -29,7 +29,7 @@ function Header({ title, user, usersList }: any) {
         {title === "Profile" && (
           <div className="flex lg:flex-row flex-col justify-center pt-[30px] text-base text-start">
             {/* Bio */}
-            <div className="lg:border-r p-5 flex flex-col justify-center">
+            <div className="lg:border-r h-[75vh] p-5 flex flex-col justify-center">
               <img
                 className="w-[170px] h-[170px] rounded-full m-auto"
                 src={user.profilepicture}
@@ -87,7 +87,7 @@ function Header({ title, user, usersList }: any) {
                 {/* Map & geo details */}
                 <div>
                   <img
-                    className="lg:h-[300px]  rounded-2xl p-2"
+                    className="lg:h-[300px] rounded-[32px] p-2"
                     src={map}
                     alt={map}
                   />
@@ -147,14 +147,14 @@ function Header({ title, user, usersList }: any) {
                 {user.email}
               </p>
             </div>
-            <div className="border-t w-[160px] my-[5px]" />
+            {/* <div className="border-t w-[160px] my-[5px]" /> */}
 
             <div className="grid grid-flow-row justify-center gap-2">
               {usersList.slice(0,2).map((item: any) => (
                 <Link to="/home" state={{ user: item } as any}>
                   <div
                     onClick={handleClose}
-                    className="flex flex-row gap-2 items-center cursor-pointer"
+                    className="flex flex-row gap-2 justify-center items-center cursor-pointer border-t w-[200px] py-[5px]"
                   >
                     <span>
                       <img

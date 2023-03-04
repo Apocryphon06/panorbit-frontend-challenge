@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Login({usersList}:any) {
 
   return (
-    <div className="lg:w-[570px] w-[325px] m-auto pt-[140px]">
+    <div className="lg:w-[570px] w-[325px] m-auto lg:pt-[140px] pt-[100px]">
       <div className="bg-lightGray rounded-tl-3xl rounded-tr-3xl p-10 shadow-md ">
         <p className="text-center font-avenirRoman opacity-80 lg:text-xl text-lg">
           Select an account

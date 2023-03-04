@@ -4,11 +4,11 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 function ChatModal({usersList,setChatActive,chatActive}:any) {
   return (
-    <div className="bg-[#2C65C8] lg:block hidden w-[220px] text-white rounded-tl-lg rounded-tr-lg absolute bottom-0 right-[70px]">
+    <div className="bg-[#2C65C8] border-[#2C65C8] border-b-0 lg:block hidden w-[220px] text-white rounded-tl-lg rounded-tr-lg absolute bottom-1 right-[70px]">
         <div className="flex  justify-between p-2 px-3">
-          <div className="flex gap-2">
-            <ChatBubbleOutlineIcon className="mirror" />
-            <p className="inline ">Chats</p>
+          <div className="flex gap-2 items-center">
+            <ChatBubbleOutlineIcon sx={{width:'22px',height:'22px'}} className="mirror" />
+            <p className="inline font-avenirBook">Chats</p>
           </div>
           {chatActive === "hidden" ? (
             <KeyboardArrowUpIcon
@@ -27,7 +27,7 @@ function ChatModal({usersList,setChatActive,chatActive}:any) {
           )}
         </div>
 
-        <div className={`bg-white px-1 border border-[#2C65C8] ${chatActive}`}>
+        <div className={`bg-white px-1 border border-t-0 border-[#2C65C8] ${chatActive}`}>
           <div className=" text-black px-5 h-[300px] overflow-y-scroll">
             {usersList.map((user: any) => (
               <>
@@ -40,7 +40,7 @@ function ChatModal({usersList,setChatActive,chatActive}:any) {
                       alt="profile_pic"
                     />
 
-                    <p className="text-xs font-avenirBook opacity-70">
+                    <p className="text-sm font-avenirBook opacity-70">
                       {user.name}
                     </p>
                   </div>
@@ -50,7 +50,7 @@ function ChatModal({usersList,setChatActive,chatActive}:any) {
                       Math.floor(Math.random() * 2) === 0
                         ? "text-[#1CAD62]"
                         : "text-[#dfdfdf]"
-                    } scale-[2.5] relative bottom-[5px]`}
+                    } scale-[2.5] relative bottom-[5px] left-[10px]`}
                   >
                     &#x2022;
                   </p>
