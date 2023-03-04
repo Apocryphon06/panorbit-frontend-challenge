@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        ptSansRegular: ['PTSans Regular'],
-        ptSansBold: ['PTSans Bold'],
+        interRegular: ['Inter Regular'],
+        interBold: ['Inter Bold'],
       },
       colors: {
         purple: '#5e3bc8',
