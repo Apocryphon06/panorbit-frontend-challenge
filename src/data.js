@@ -126,7 +126,7 @@ export const users = [
   },
   {
     id: 6,
-    name: 'Mrs. Dennis Schulist',
+    name: 'Dennis Schulist',
     username: 'Leopoldo_Corkery',
     email: 'Karley_Dach@jasper.info',
     profilepicture:
@@ -176,7 +176,7 @@ export const users = [
   },
   {
     id: 8,
-    name: 'Nicholas Runolfsdottir V',
+    name: 'Nicholas V',
     username: 'Maxime_Nienow',
     email: 'Sherwood@rosamond.me',
     profilepicture:

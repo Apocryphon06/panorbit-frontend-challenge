@@ -7,6 +7,13 @@ import Banner from "../Banner";
 import Header from "../Header";
 import ChatModal from "../ChatModal";
 
+// mui imports
+import SendIcon from "@mui/icons-material/Send";
+import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ChatInputModal from "../ChatInputModal";
+
 function Home({ usersList }: any) {
   // active tabs state to render content accordingly
   const [tab, setTab] = useState("Profile");
@@ -17,10 +24,16 @@ function Home({ usersList }: any) {
   // chat modal visibility states
   const [chatActive, setChatActive] = useState("hidden");
 
+  // log out modal states & handler functions
   const [open, setOpen] = useState(false);
-
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // active chat window states
+  const [openChat, setOpenChat] = useState("hidden");
+  const [minimize, setMinimize] = useState("");
+
+  const [name, setName] = useState("");
 
   return (
     <div
@@ -55,9 +68,21 @@ function Home({ usersList }: any) {
 
       {/* Chat Popup */}
       <ChatModal
+        setName={setName}
         usersList={usersList}
         chatActive={chatActive}
         setChatActive={setChatActive}
+        setOpenChat={setOpenChat}
+      />
+
+      
+
+      <ChatInputModal
+        name={name}
+        minimize={minimize}
+        openChat={openChat}
+        setMinimize={setMinimize}
+        setOpenChat={setOpenChat}
       />
     </div>
   );
