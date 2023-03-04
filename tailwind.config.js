@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         interRegular: ['Inter Regular'],
         interBold: ['Inter Bold'],
+        avenir:['Avenir']
       },
       colors: {
         purple: '#5e3bc8',

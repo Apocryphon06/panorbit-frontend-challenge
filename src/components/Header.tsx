@@ -2,20 +2,19 @@ import { Box, Modal } from "@mui/material";
 import { useState } from "react";
 import map from "../assets/images/map.png";
 import { Link } from "react-router-dom";
+import Info from "./Info";
 
-
-function Header({ title, user }: any) {
+function Header({ title, user, usersList }: any) {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
 
   return (
     <>
       <div className="lg:h-[627px] lg:w-[70vw]">
         <div className="flex flex-row justify-between items-center py-[20px] border-b border-[#d8d8d8]">
-          <p className="text-lg font-interRegular  text-[#545454]">{title}</p>
+          <p className="text-lg font-avenir  text-[#545454]">{title}</p>
 
           <div onClick={handleOpen} className="flex gap-2 items-center">
             <img
@@ -23,7 +22,7 @@ function Header({ title, user }: any) {
               src={user.profilepicture}
               alt="avatar"
             />
-            <p className="cursor-pointer font-interRegular">{user.name}</p>
+            <p className="cursor-pointer font-avenir">{user.name}</p>
           </div>
         </div>
 
@@ -36,68 +35,34 @@ function Header({ title, user }: any) {
                 src={user.profilepicture}
                 alt="account_picture"
               />
-              <p className="text-[#545454] pt-[10px] text-center font-interBold">
+              <p className="text-[#545454] pt-[10px] text-center font-avenir">
                 {user.name ?? ""}
               </p>
 
               <div className="border-b border-[#CACACA] flex flex-col gap-1 px-5 py-2">
-                <p className="text-[#545454] font-interRegular ">
-                  <span className="text-[#9a9a9a] font-interRegular">
-                    Username&nbsp;:
-                  </span>
-                  &nbsp;
-                  {user.username ?? ""}
-                </p>
-                <p className="text-[#545454] font-interRegular ">
-                  <span className="text-[#9a9a9a] font-interRegular">
-                    e-mail&nbsp;:
-                  </span>
-                  &nbsp;
-                  {user.email ?? ""}
-                </p>
-                <p className="text-[#545454] font-interRegular ">
-                  <span className="text-[#9a9a9a] font-interRegular">
-                    Phone&nbsp;:
-                  </span>
-                  &nbsp;
-                  {user.phone ?? ""}
-                </p>
-                <p className="text-[#545454] font-interRegular ">
-                  <span className="text-[#9a9a9a] font-interRegular">
-                    Website&nbsp;:
-                  </span>
-                  &nbsp;
-                  {user.website ?? ""}
-                </p>
+                {[
+                  { label: "Username", value: user.username },
+                  { label: "e-mail", value: user.email },
+                  { label: "Phone", value: user.phone },
+                  { label: "Website", value: user.website },
+                ].map((item) => (
+                  <Info label={item.label} value={item.value} />
+                ))}
               </div>
 
               {/* Company Details */}
 
               <div className="flex flex-col gap-1 mt-[10px]">
-                <p className=" text-[#9a9a9a] font-interRegular">Company</p>
+                <p className=" text-[#9a9a9a] font-avenir">Company</p>
 
                 <div className="px-5 py-2">
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      Name&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.company.name ?? ""}
-                  </p>
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      catchphrase&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.company.catchPhrase ?? ""}
-                  </p>
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      bs&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.company.bs ?? ""}
-                  </p>
+                  {[
+                    { label: "Name", value: user.company.name },
+                    { label: "catchphrase", value: user.company.catchPhrase },
+                    { label: "bs", value: user.company.bs },
+                  ].map((item) => (
+                    <Info label={item.label} value={item.value} />
+                  ))}
                 </div>
               </div>
             </div>
@@ -106,37 +71,17 @@ function Header({ title, user }: any) {
             <div className="p-5">
               <div className="border-t border-[#d8d8d8] lg:hidden block" />
 
-              <p className="text-[#9a9a9a] font-interRegular">Address:</p>
+              <p className="text-[#9a9a9a] font-avenir">Address:</p>
               <div className="px-5 py-2">
                 <div className="flex flex-col gap-1 px-2">
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      Street&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.address.street ?? ""}
-                  </p>
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      Suite&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.address.suite ?? ""}
-                  </p>
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      City&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.address.city ?? ""}
-                  </p>
-                  <p className="text-[#545454] font-interRegular ">
-                    <span className="text-[#9a9a9a] font-interRegular">
-                      Zipcode&nbsp;:
-                    </span>
-                    &nbsp;
-                    {user.address.zipcode ?? ""}
-                  </p>
+                  {[
+                    { label: "Street", value: user.address.street },
+                    { label: "Suite", value: user.address.suite },
+                    { label: "City", value: user.address.city },
+                    { label: "Zipcode", value: user.address.zipcode },
+                  ].map((item) => (
+                    <Info label={item.label} value={item.value} />
+                  ))}
                 </div>
 
                 {/* Map & geo details */}
@@ -147,15 +92,15 @@ function Header({ title, user }: any) {
                     alt={map}
                   />
                   <div className="flex flex-row gap-5 justify-end px-2">
-                    <p className="text-[#545454] font-interBold text-xs">
-                      <span className="text-[#9a9a9a] font-interRegular">
+                    <p className="text-[#545454] font-avenir text-xs">
+                      <span className="text-[#9a9a9a] font-avenir">
                         Lat&nbsp;:
                       </span>
                       &nbsp;
                       {user.address.geo.lat ?? ""}
                     </p>
-                    <p className="text-[#545454] font-interBold text-xs">
-                      <span className="text-[#9a9a9a] font-interRegular">
+                    <p className="text-[#545454] font-avenir text-xs">
+                      <span className="text-[#9a9a9a] font-avenir">
                         Long&nbsp;:
                       </span>
                       &nbsp;
@@ -163,11 +108,14 @@ function Header({ title, user }: any) {
                     </p>
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         )}
       </div>
+
+      {/* Log out modal */}
       <Modal
         open={open}
         onClose={handleClose}
@@ -194,51 +142,41 @@ function Header({ title, user }: any) {
             />
 
             <div className="flex flex-col">
-              <p className="text-[18px] font-interRegular ">{user.name}</p>
-              <p className="text-base text-[#9a9a9a] font-interRegular">
+              <p className="text-[18px] font-avenir ">{user.name}</p>
+              <p className="text-base text-[#9a9a9a] font-avenir">
                 {user.email}
               </p>
             </div>
             <div className="border-t w-[160px] my-[5px]" />
 
-            <Link to="/">
-              <div className="flex flex-row gap-2 items-center cursor-pointer">
-                <span className=" ">
-                  <img
-                    className="w-[28px] h-[28px] rounded-full"
-                    src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1009.jpeg"
-                    alt="person1"
-                  />
-                </span>{" "}
-                <p className="text-sm font-interRegular text-[#545454] ">
-                  {" "}
-                  Clementine Bauch
-                </p>
-              </div>
-            </Link>
-
-            <div className="border-t w-[160px] my-[5px]" />
-
-            <Link to="/">
-              <div className="flex flex-row gap-2 items-center cursor-pointer ">
-                <span className=" ">
-                  <img
-                    className="w-[28px] h-[28px] rounded-full"
-                    src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1008.jpeg"
-                    alt="person1"
-                  />
-                </span>{" "}
-                <p className="text-sm font-interRegular text-[#545454]">
-                  {" "}
-                  Patricia Lebsack
-                </p>
-              </div>
-            </Link>
+            <div className="grid grid-flow-row justify-center gap-2">
+              {usersList.slice(4, 6).map((item: any) => (
+                <Link to="/home" state={{ user: item } as any}>
+                  <div
+                    onClick={handleClose}
+                    className="flex flex-row gap-2 items-center cursor-pointer"
+                  >
+                    <span>
+                      <img
+                        className="w-[28px] h-[28px] rounded-full"
+                        // src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1009.jpeg"
+                        src={item.profilepicture}
+                        alt="person1"
+                      />
+                    </span>{" "}
+                    <p className="text-sm font-avenir text-[#545454] ">
+                      {" "}
+                      {item.name}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
 
             <Link to="/">
               <button
                 onClick={handleClose}
-                className="bg-[#D55151] rounded-full p-2 px-4 text-white cursor-pointer font-interRegular font-bold mt-[10px]"
+                className="bg-[#D55151] rounded-full p-2 px-4 text-white cursor-pointer font-avenir font-bold mt-[10px]"
               >
                 Sign out
               </button>
