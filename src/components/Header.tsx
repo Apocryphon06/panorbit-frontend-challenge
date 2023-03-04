@@ -1,4 +1,4 @@
-import { Box, Modal } from "@mui/material";
+import { Backdrop, Box, Modal } from "@mui/material";
 import { useState } from "react";
 import map from "../assets/images/map.png";
 import { Link } from "react-router-dom";
@@ -38,11 +38,11 @@ function Header({ title, user }: any) {
         </div>
 
         {title === "Profile" && (
-          <div className="flex lg:flex-row flex-col justify-center px-5 pt-[30px] text-[18px] text-start">
+          <div className="flex lg:flex-row flex-col justify-center pt-[30px] text-[18px] text-start">
             {/* Bio */}
             <div className="lg:border-r p-5 flex flex-col justify-center">
               <img
-                className="w-[150px] h-[150px] rounded-full m-auto"
+                className="w-[170px] h-[170px] rounded-full m-auto"
                 src={user.profilepicture}
                 alt="account_picture"
               />
@@ -114,6 +114,8 @@ function Header({ title, user }: any) {
 
             {/* Address details */}
             <div className="p-5">
+            <div className="border-t border-[#d8d8d8] lg:hidden block"/>
+
               <p className="text-[#9a9a9a] font-ptSansRegular">Address:</p>
               <div className="px-5 py-2">
                 <div className="flex flex-col gap-1 px-2">
@@ -150,7 +152,7 @@ function Header({ title, user }: any) {
                 {/* Map & geo details */}
                 <div>
                   <img
-                    className="w-[500px] h-[250px] rounded-2xl p-2"
+                    className="lg:h-[300px]  rounded-2xl p-2"
                     src={map}
                     alt={map}
                   />
@@ -183,10 +185,10 @@ function Header({ title, user }: any) {
         aria-describedby="modal-modal-description"
         // disableEnforceFocus
         closeAfterTransition
-        // BackdropComponent={Backdrop}
-        // BackdropProps={{
-        //   timeout: 500,
-        // }}
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 100,
+        }}
       >
         <Box
           sx={style}
@@ -196,7 +198,7 @@ function Header({ title, user }: any) {
             outline: "none",
           }}
         >
-          <div className="flex flex-col justify-center items-center p-10 w-[270px] rounded-2xl shadow-lg bg-white">
+          <div className="flex flex-col justify-center items-center p-10 w-[270px] rounded-2xl shadow dropShadow bg-white">
             <img
               className="w-[90px] h-[90px] rounded-full mb-[10px]"
               src={user.profilepicture}
@@ -204,36 +206,53 @@ function Header({ title, user }: any) {
             />
 
             <div className="flex flex-col">
-              <p>{user.name}</p>
-              <p>{user.email}</p>
+              <p className="text-[18px] font-ptSansRegular font-semibold">
+                {user.name}
+              </p>
+              <p className="text-base text-[#9a9a9a] font-ptSansRegular">
+                {user.email}
+              </p>
             </div>
+            <div className="border-t w-[160px] my-[5px]" />
 
-            <div className="flex flex-row gap-2 items-center mt-[10px]">
-              <span className=" ">
-                <img
-                  className="w-[28px] h-[28px] rounded-full"
-                  src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1009.jpeg"
-                  alt="person1"
-                />
-              </span>{" "}
-              <p className="text-sm "> Clementine Bauch</p>
-            </div>
+            <Link to="/">
+              <div className="flex flex-row gap-2 items-center cursor-pointer">
+                <span className=" ">
+                  <img
+                    className="w-[28px] h-[28px] rounded-full"
+                    src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1009.jpeg"
+                    alt="person1"
+                  />
+                </span>{" "}
+                <p className="text-sm font-ptSansRegular text-[#545454] ">
+                  {" "}
+                  Clementine Bauch
+                </p>
+              </div>
+            </Link>
 
-            <div className="flex flex-row gap-2 items-center mt-[10px]">
-              <span className=" ">
-                <img
-                  className="w-[28px] h-[28px] rounded-full"
-                  src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1008.jpeg"
-                  alt="person1"
-                />
-              </span>{" "}
-              <p className="text-sm "> Patricia Lebsack</p>
-            </div>
+            <div className="border-t w-[160px] my-[5px]" />
+
+            <Link to="/">
+              <div className="flex flex-row gap-2 items-center cursor-pointer ">
+                <span className=" ">
+                  <img
+                    className="w-[28px] h-[28px] rounded-full"
+                    src="https://panorbit.in/wp-content/uploads/2019/hotlink-ok/1008.jpeg"
+                    alt="person1"
+                  />
+                </span>{" "}
+                <p className="text-sm font-ptSansRegular text-[#545454]">
+                  {" "}
+                  Patricia Lebsack
+                </p>
+              </div>
+            </Link>
 
             <Link to="/">
               <button
                 onClick={handleClose}
-                className="bg-[#D55151] rounded-full p-2 px-4 text-white cursor-pointer font-ptSansRegular font-semibold mt-[10px]"
+                className="bg-[#D55151] rounded-full p-2 px-4 text-white cursor-pointer font-ptSansRegular font-bold mt-[10px]"
               >
                 Sign out
               </button>

@@ -7,9 +7,9 @@ function Login() {
   const [usersList, setuserList] = useState(users);
 
   return (
-    <div className="w-[570px] m-auto pt-[140px]">
+    <div className="lg:w-[570px] w-[325px] m-auto pt-[140px]">
       <div className="bg-lightGray rounded-tl-3xl rounded-tr-3xl p-10 shadow-md ">
-        <p className="text-center font-ptSansRegular font-semibold opacity-80 text-xl">
+        <p className="text-center font-ptSansRegular font-semibold opacity-80 lg:text-xl text-lg">
           Select an account
         </p>
       </div>
@@ -21,11 +21,11 @@ function Login() {
             <Link to="/home" state={{ user: user } as any}>
               <div className="flex flex-row items-center py-[8px] gap-[10px] cursor-pointer border-b">
                 <img
-                  className="w-[32px] h-[32px] rounded-full"
+                  className="lg:w-[32px] w-[28px] lg:h-[32px] h-[28px] rounded-full"
                   src={user.profilepicture}
                   alt="profile_pic"
                 />
-                <p className="text-[17px] font-ptSansRegular opacity-70">{user.name}</p>
+                <p className="lg:text-lg text-base font-ptSansRegular opacity-70">{user.name}</p>
               </div>
             </Link>
           </>
