@@ -8,7 +8,7 @@ import Header from "../Header";
 // svgs
 import activeIcon from "../../assets/svg/activeIcon.svg";
 
-function Home() {
+function Home({usersList}:any) {
   // active tabs state
   const [tab, setTab] = useState("Profile");
 

@@ -1,10 +1,6 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { users } from "../../data.js";
 
-function Login() {
-  // eslint-disable-next-line
-  const [usersList, setuserList] = useState(users);
+function Login({usersList}:any) {
 
   return (
     <div className="lg:w-[570px] w-[325px] m-auto pt-[140px]">
