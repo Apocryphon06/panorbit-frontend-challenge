@@ -8,10 +8,6 @@ import Header from "../Header";
 import ChatModal from "../ChatModal";
 
 // mui imports
-import SendIcon from "@mui/icons-material/Send";
-import CloseIcon from "@mui/icons-material/Close";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ChatInputModal from "../ChatInputModal";
 
 function Home({ usersList }: any) {
@@ -74,8 +70,6 @@ function Home({ usersList }: any) {
         setChatActive={setChatActive}
         setOpenChat={setOpenChat}
       />
-
-      
 
       <ChatInputModal
         name={name}
