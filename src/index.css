@@ -64,3 +64,8 @@
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
+
+.bgGradient {
+  background-image: url('./assets/images/bg.jpeg');
+  background: no-repeat;
+}
