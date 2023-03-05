@@ -1,5 +1,6 @@
 import activeIcon from "../assets/svg/activeIcon.svg";
 
+
 function ActiveIcon({pos}:any) {
   return (
     <img
